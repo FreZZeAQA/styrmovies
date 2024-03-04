@@ -1,13 +1,14 @@
-import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {FC} from 'react';
+import {NavLink} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFilm, faUserCircle, faAdjust} from '@fortawesome/free-solid-svg-icons';
 import css from './Header.module.css';
-import { useTheme } from "../../hoc/ThemeContext";
-import { SearchForm } from "../searchFrom/SearchForm";
+import {useTheme} from "../../hoc/ThemeContext";
+import {SearchForm} from "../searchFrom";
+
 
 const Header: FC = () => {
-    const { toggleTheme } = useTheme();
+    const {toggleTheme} = useTheme();
 
     return (
         <div className={css.Header}>
@@ -15,23 +16,23 @@ const Header: FC = () => {
                 <NavLink to="" className={css.NavLink}>
                     <h1 className={css.Title}>
                         STMovie
-                        <FontAwesomeIcon icon={faFilm} className={css.FilmIcon} />
+                        <FontAwesomeIcon icon={faFilm} className={css.FilmIcon}/>
                     </h1>
                     <div className={css.Highlight}></div>
                 </NavLink>
             </div>
             <div className={css.ActionsContainer}>
-                <SearchForm />
+                <SearchForm/>
                 <div className={css.ThemeSwitcher} onClick={toggleTheme}>
-                    <FontAwesomeIcon icon={faAdjust} className={css.ThemeIcon} />
+                    <FontAwesomeIcon icon={faAdjust} className={css.ThemeIcon}/>
                 </div>
                 <div className={css.UserContainer}>
                     <span className={css.UserName}>FreZZe</span>
-                    <FontAwesomeIcon icon={faUserCircle} className={css.UserIcon} />
+                    <FontAwesomeIcon icon={faUserCircle} className={css.UserIcon}/>
                 </div>
             </div>
         </div>
     );
 };
 
-export { Header };
+export {Header};

@@ -1,6 +1,4 @@
-
 const movieDbBaseUrl = 'https://api.themoviedb.org/3'
-
 
 
 const movies = '/movie'
@@ -10,20 +8,20 @@ const genres = '/genre'
 const list = '/list'
 
 
-const urls =  {
-    movies:{
-        base:`${discover}${movies}`,
-        byId:(id:number)=>`${movies}/${id}`,
-        bySearch:`${search}${movies}`,
-        byGenres:(ids:number[]):string=>`${discover}${movies}?with_genres=${ids.join(',')}`
+const urls = {
+    movies: {
+        base: `${discover}${movies}`,
+        byId: (id: number) => `${movies}/${id}`,
+        bySearch: `${search}${movies}`,
+        byGenres: (ids: number[]): string => `${discover}${movies}?with_genres=${ids.join(',')}`
     },
-    img:{
+    img: {
         base: 'https://image.tmdb.org/t/p/w500'
     },
-    genres:{
-        base:`${genres}${movies}${list}`
+    genres: {
+        base: `${genres}${movies}${list}`
     }
 }
 
 
-export {movieDbBaseUrl,urls}
+export {movieDbBaseUrl, urls}

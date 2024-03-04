@@ -3,9 +3,10 @@ import { IMovie } from "../../interfaces";
 import { movieService } from "../../services";
 import { urls } from "../../constants";
 import { useParams } from "react-router-dom";
-import { Loader } from "../loader/Loader";
 import styles from "./MovieDetails.module.css";
-import {StarsRating} from "../RatingStars/StarsRating";
+import {Loader} from "../loader";
+import {StarsRating} from "../RatingStars";
+
 
 interface IProps extends PropsWithChildren {}
 

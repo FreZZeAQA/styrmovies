@@ -4,23 +4,23 @@ import styles from "../MoviesContainer/MovieDetails.module.css";
 import {IMovie} from "../../interfaces";
 
 interface IProps extends PropsWithChildren {
- movie:IMovie
+    movie: IMovie
 }
 
-const StarsRating : FC<IProps> = ({movie}) => {
- return (
-  <div>
-   <RatingStars
-       count={10}
-       value={movie.vote_average}
-       edit={false}
-       size={24}
-       activeColor="#ffd700"
-       isHalf={true}
-       className={styles.rating}
-   />
-  </div>
- );
+const StarsRating: FC<IProps> = ({movie}) => {
+    return (
+        <div>
+            <RatingStars
+                count={10}
+                value={movie.vote_average}
+                edit={false}
+                size={24}
+                activeColor="#ffd700"
+                isHalf={true}
+                className={styles.rating}
+            />
+        </div>
+    );
 };
 
 export {StarsRating};

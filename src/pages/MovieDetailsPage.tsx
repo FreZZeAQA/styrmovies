@@ -1,7 +1,7 @@
 import React from "react";
 import css from './MovieDetailsPage.module.css'
 
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {MovieDetails} from "../components/MoviesContainer";
 
 const MovieDetailsPage = () => {
@@ -13,7 +13,7 @@ const MovieDetailsPage = () => {
 
     return (
         <div className={css.container}>
-            <MovieDetails />
+            <MovieDetails/>
             <button className={css.backButton} onClick={goBack}>
                 Go Back
             </button>
@@ -21,4 +21,4 @@ const MovieDetailsPage = () => {
     );
 };
 
-export { MovieDetailsPage };
+export {MovieDetailsPage};

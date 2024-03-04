@@ -1,11 +1,10 @@
-// Movies.tsx
 import React, { useEffect, useState } from "react";
-import {IGenre, IMovie, IMovieResponse} from "../../interfaces";
-import {genreService, movieService} from "../../services";
+import { IGenre, IMovie, IMovieResponse } from "../../interfaces";
+import { genreService, movieService } from "../../services";
 import css from './Movies.module.css';
 import { Movie } from "./Movie";
 import { useSearchParams } from "react-router-dom";
-import { Genre } from "../GenreContainer/Genre";
+import { Genre } from "../GenreContainer";
 
 const Movies = () => {
     const [movies, setMovies] = useState<IMovie[]>([]);
@@ -28,7 +27,7 @@ const Movies = () => {
 
     const goToPage = (page: number) => {
         const query = searchParams.get('query') || '';
-        setSearchParams({ page: page.toString(), query });
+        setSearchParams({ page: page.toString(), query, genre: selectedGenreId?.toString() || '' });
     };
 
     const handleChangeGenre = (id: number) => {
@@ -55,32 +54,23 @@ const Movies = () => {
             setSelectedGenreId(parseInt(genreId));
         }
 
+        let requestPromise;
         if (selectedGenreId !== null) {
-            movieService.getByGenreIds([selectedGenreId], page).then((response) => {
-                setMovies(response.data.results);
-                setPrevNext({
-                    page: response.data.page, total_pages: response.data.total_pages,
-                    total_results: response.data.total_results, results: response.data.results
-                });
-            });
+            requestPromise = movieService.getByGenreIds([selectedGenreId], page);
         } else if (query) {
-            movieService.searchByWord(query, page).then((response) => {
-                setMovies(response.data.results);
-                setPrevNext({
-                    page: response.data.page, total_pages: response.data.total_pages,
-                    total_results: response.data.total_results, results: response.data.results
-                });
-            });
+            requestPromise = movieService.searchByWord(query, page);
         } else {
-            movieService.getAll(page).then((response) => {
-                setMovies(response.data.results);
-                setPrevNext({
-                    page: response.data.page, total_pages: response.data.total_pages,
-                    total_results: response.data.total_results, results: response.data.results
-                });
-            });
+            requestPromise = movieService.getAll(page);
         }
-    }, [searchParams]);
+
+        requestPromise.then((response) => {
+            setMovies(response.data.results);
+            setPrevNext({
+                page: response.data.page, total_pages: response.data.total_pages,
+                total_results: response.data.total_results, results: response.data.results
+            });
+        });
+    }, [searchParams, selectedGenreId]);
 
     return (
         <div>

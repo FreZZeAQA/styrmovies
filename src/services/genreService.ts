@@ -1,4 +1,3 @@
-
 import {IGenreResponse} from "../interfaces";
 import {apiService} from "./apiService";
 import {urls} from "../constants";

@@ -1,4 +1,3 @@
-// Genre.tsx
 import React, {FC} from 'react';
 
 import css from './Genre.module.css';
