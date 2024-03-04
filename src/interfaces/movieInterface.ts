@@ -6,4 +6,5 @@ export interface IMovie {
     genre_ids: number[];
     release_date: string;
     vote_average: number;
+    popularity:number
 }

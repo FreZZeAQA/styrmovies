@@ -1,5 +1,3 @@
-/* Header.module.css */
-
 .Header {
     height: 60px;
     background-color: #1a1a1a;
@@ -178,6 +176,6 @@
 }
 
 .UserContainer {
-    margin-right: 10px; /* Відступ між UserContainer та BurgerMenu */
+    margin-right: 10px;
 }
 

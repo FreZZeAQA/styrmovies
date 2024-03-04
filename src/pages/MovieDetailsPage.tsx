@@ -2,7 +2,7 @@ import React from "react";
 import css from './MovieDetailsPage.module.css'
 
 import { useNavigate } from "react-router-dom";
-import { MovieDetails } from "../components/MoviesContainer/MovieDetails";
+import {MovieDetails} from "../components/MoviesContainer";
 
 const MovieDetailsPage = () => {
     const navigate = useNavigate();

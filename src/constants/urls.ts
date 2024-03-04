@@ -1,5 +1,4 @@
 
-
 const movieDbBaseUrl = 'https://api.themoviedb.org/3'
 
 
@@ -16,7 +15,7 @@ const urls =  {
         base:`${discover}${movies}`,
         byId:(id:number)=>`${movies}/${id}`,
         bySearch:`${search}${movies}`,
-
+        byGenres:(ids:number[]):string=>`${discover}${movies}?with_genres=${ids.join(',')}`
     },
     img:{
         base: 'https://image.tmdb.org/t/p/w500'
@@ -24,10 +23,6 @@ const urls =  {
     genres:{
         base:`${genres}${movies}${list}`
     }
-
-
-
-
 }
 
 

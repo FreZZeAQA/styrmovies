@@ -8,7 +8,7 @@ interface ThemeContextType extends PropsWithChildren{
     toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextType>(undefined);
 const useTheme = (): ThemeContextType => {
     return useContext(ThemeContext);
 };
